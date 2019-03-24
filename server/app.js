@@ -1,7 +1,7 @@
 'use strict';
 
 const loopback = require('loopback');
-const app = module.exports = loopback();
+const app = loopback();
 
 app.start = () => {
   // start the web server
@@ -17,3 +17,5 @@ app.start = () => {
     }
   });
 };
+
+module.exports = app;

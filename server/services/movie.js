@@ -5,7 +5,7 @@ const getCircuitBreaker = require('../libs/circuit-breaker');
 
 module.exports = {
   list: () => getCircuitBreaker({
-    name: 'movie'
+    name: 'movies'
   })
-    .execute(app.dataSources.movie, 'listDS', [])
+    .execute(app.dataSources.movies, 'listDS', [])
 };

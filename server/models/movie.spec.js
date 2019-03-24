@@ -4,7 +4,7 @@ const casual = require('casual');
 const movieService = require('../services/movie');
 const { expect } = require('chai');
 
-describe('models/user.js', () => {
+describe('models/movie.js', () => {
   let model;
   let req = {};
   let res = {
@@ -23,7 +23,6 @@ describe('models/user.js', () => {
   it('should return the correct movies', async () => {
     const movies = [];
     const numberOfMovies = 10;
-
     for (let i = 0; i < numberOfMovies; i++) {
       const { title, date, time, uuid, integer, word } = casual;
       movies.push({
