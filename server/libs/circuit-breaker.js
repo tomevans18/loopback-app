@@ -13,22 +13,19 @@ const DEFAULTS = {
   'errorThresholdPercentage': 5,
   'minimumRequestForHealthCheck': 5,
   'executionTrackWindow': 10000,
-  'windowBucket': 10,
+  'windowBucket': 10
 };
 
 module.exports = (config) => {
   const settings = Object.assign({}, DEFAULTS, config);
 
-  if (typeof settings.name === 'undefined')
-    throw new Error('Service name must be passed to circuit breaker');
+  if (typeof settings.name === 'undefined') { throw new Error('Service name must be passed to circuit breaker'); }
 
   hystrixConfig.init({
     'hystrix.circuit.volumeThreshold.forceOverride': false,
     'hystrix.circuit.volumeThreshold.override': settings.minimumRequestForHealthCheck,
-    'hystrix.promise.implementation': Promise,
+    'hystrix.promise.implementation': Promise
   });
-
-  console.log('circuit breaker', settings);
 
   return commandFactory.getOrCreate(settings.name)
     .timeout(returnInt(settings.timeout))

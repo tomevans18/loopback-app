@@ -6,7 +6,6 @@
     "node": ">=6"
   },
   "scripts": {
-    "lint": "eslint .",
     "dev": "nodemon .",
     "start": "node .",
     "startDb": "mongod --dbpath data/db --logpath logs/mongo.log --logappend",
@@ -15,8 +14,7 @@
     "test": "npm run test:coverage npm run test:unit",
     "test:coverage": "nyc",
     "test:unit": "mocha --exit './server/**/*.spec.js'",
-    "test:component": "cross-env MOCHAWESOME_REPORTDIR=./test/reports MOCHAWESOME_REPORTFILENAME=mocha-report mocha --exit --timeout 100000 --reporter mochawesome './test/**/*.spec.js'",
-    "posttest": "npm run lint"
+    "test:component": "cross-env MOCHAWESOME_REPORTDIR=./test/reports MOCHAWESOME_REPORTFILENAME=mocha-report mocha --exit --timeout 100000 --reporter mochawesome './test/**/*.spec.js'"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -37,9 +35,11 @@
     "chai": "^4.2.0",
     "eslint": "^3.17.1",
     "eslint-config-loopback": "^8.0.0",
+    "eslint-config-semistandard": "^13.0.0",
     "mocha": "^6.0.2",
     "nodemon": "^1.18.10",
     "nyc": "^13.3.0",
+    "semistandard": "^13.0.1",
     "sinon": "^7.3.0"
   },
   "repository": {

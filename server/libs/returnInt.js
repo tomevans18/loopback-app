@@ -1,8 +1,3 @@
 'use strict';
 
-exports.module = (data) => {
-  if (typeof data === 'string') {
-    return parseInt(data);
-  }
-  return data;
-};
+module.exports = data => typeof data === 'string' ? parseInt(data.replace(/,/g, '')) : data;
