@@ -45,11 +45,11 @@
         ));
       };
 
-      movies().then((moviesHtml) => {
+      movies().then((moviesList) => {
         let rootElement =
           createElement('div', {},
             createElement('h1', {}, "Movies"),
-            createElement('ul', {}, moviesHtml)
+            createElement('ul', {}, moviesList)
           )
 
         // The `ReactDOM` variable is set by the second `<script>` tag

@@ -18,15 +18,14 @@ This was saved there to match the example project.
 Completed previously via the ```lb model``` command.
 
 ###Build a model
-Model, aka data, is stored within MongoDB.
+Movie model built created via ```lb model``` command.
 
 ###Build a controller
-As part of the ```lb model``` a basic structure for the business logic files was created.
-This has been extended to add the middleware response, which returns the number of times the API has been called.
+Service added to provide circuit breaker and middleware data in response (added via model).
 
 ###Build a view
-Basic listing built within the client folder.
-I didn't go too much into this as there was no view in the example repo and for this reason I did not want to waste time building something of no value.
+Basic listing view built within the client folder.
+I didn't go too much into this as there was no view in the example repo and for this reason I didn't want to waste too much time building something that I can evidently already do.
 
 ###Add a test runner
 Installed mocha, nyc, mocha, chai and sinon.

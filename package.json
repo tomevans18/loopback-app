@@ -17,6 +17,7 @@
     "test:component": "cross-env MOCHAWESOME_REPORTDIR=./test/reports MOCHAWESOME_REPORTFILENAME=mocha-report mocha --exit --timeout 100000 --reporter mochawesome './test/**/*.spec.js'"
   },
   "dependencies": {
+    "casual": "^1.6.0",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "helmet": "^3.10.0",
@@ -69,6 +70,11 @@
   "semistandard": {
     "ignore": [
       "test/reports"
+    ],
+    "globals": [
+      "format",
+      "from",
+      "to"
     ]
   },
   "license": "UNLICENSED",

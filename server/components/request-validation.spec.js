@@ -3,7 +3,7 @@ const { expect } = require('chai');
 const requestValidation = require('./request-validation');
 
 describe('components/request-validation.js', () => {
-  it('should throw an exception if the swagger file cannot be loaded', () => {
+  it('should throw an exception if the swagger file cannot be loaded', async () => {
     try {
       await requestValidation({}, {
         path: 'foo'
@@ -13,7 +13,7 @@ describe('components/request-validation.js', () => {
     }
   });
 
-  it('should add the correct middleware', () => {
+  it('should add the correct middleware', async () => {
     const app = {
       middleware: sinon.spy()
     };

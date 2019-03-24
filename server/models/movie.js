@@ -6,8 +6,6 @@ module.exports = (Movie) => {
   Movie.list = async (req, res) => {
     let response;
 
-    console.log('------ HELLO WORLD!!');
-
     try {
       response = await movieService.list();
     } catch (err) {
