@@ -5,15 +5,12 @@ const apiCallCounter = require('./apiCallCounter');
 describe('middleware/apiCallCounter.js', () => {
   it('should set the API call count', async () => {
     const req = {};
+    const res = {};
     const next = sinon.spy();
 
-    apiCallCounter()(req, {}, next);
+    apiCallCounter()(req, res, next);
 
-    expect(req.apiCallCounter).to.equal(1);
+    expect(req.apiCallCount).to.equal(1);
     expect(next.callCount).to.equal(1);
-
-    apiCallCounter()({}, {}, next);
-    expect(req.apiCallCounter).to.equal(2);
-    expect(next.callCount).to.equal(2);
   });
 });
