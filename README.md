@@ -49,13 +49,13 @@ Basic and no real value to the output but shows the concept of middleware.
 MongoDB is called as part of the application to get the data for the movie listing.
 
 ### Test your service using stubbing
-*Test for service not compelete*
+__*Test for service not compelete*__
 
 ### Spin up your own mock server
-*Mock server not compelete*
+__*Mock server not compelete*__
 
 ### Test your API endpoint using mock data
-*Test for API endpoint not complete*
+__*Test for API endpoint not complete*__
 
 ### Add a circuit breaker
 A circuit breaker was added with default values and the ability to overwrite.
