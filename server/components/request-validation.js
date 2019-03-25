@@ -11,7 +11,7 @@ module.exports = (app, opts) => {
   spec.validate(swagger, () => {});
 
   return swaggerTools
-    .initializeMiddleware(swagger, (middleware) => {
+    .initializeMiddleware(swagger, middleware => {
       app.middleware('routes:before', middleware.swaggerMetadata());
       app.middleware('routes:before', middleware.swaggerValidator());
     });
