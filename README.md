@@ -49,13 +49,16 @@ Basic and no real value to the output but shows the concept of middleware.
 MongoDB is called as part of the application to get the data for the movie listing.
 
 ### Test your service using stubbing
-__*Test for service not compelete*__
+Stubbing completed through the use of casual module to provide dynamic data.
+Included loop count to change the amount of movies in the future if needed.
 
 ### Spin up your own mock server
-__*Mock server not compelete*__
+Setup using a method through express.
+It allows you to dynamically add more mocks as and when required.
 
 ### Test your API endpoint using mock data
-__*Test for API endpoint not complete*__
+Mock data completed through the use of casual module to provide dynamic data.
+Included loop count to change the amount of movies in the future if needed.
 
 ### Add a circuit breaker
 A circuit breaker was added with default values and the ability to overwrite.
