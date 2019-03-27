@@ -1,0 +1,457 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Movies
+  description: Latest movies
+basePath: /api
+paths:
+  /movies:
+    post:
+      tags:
+        - movie
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: movie.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/new_movie'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/movie'
+      deprecated: false
+    patch:
+      tags:
+        - movie
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: movie.patchOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/movie'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/movie'
+      deprecated: false
+    put:
+      tags:
+        - movie
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: movie.replaceOrCreate__put_movies
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/movie'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/movie'
+      deprecated: false
+    get:
+      tags:
+        - movie
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: movie.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string (`{"where":{"something":"value"}}`).  See https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries for more details.'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/movie'
+      deprecated: false
+  /movies/replaceOrCreate:
+    post:
+      tags:
+        - movie
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: movie.replaceOrCreate__post_movies_replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/movie'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/movie'
+      deprecated: false
+  /movies/upsertWithWhere:
+    post:
+      tags:
+        - movie
+      summary: Update an existing model instance or insert a new one into the data source based on the where criteria.
+      operationId: movie.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/movie'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/movie'
+      deprecated: false
+  '/movies/{id}/exists':
+    get:
+      tags:
+        - movie
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'movie.exists__get_movies_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/movies/{id}':
+    head:
+      tags:
+        - movie
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'movie.exists__head_movies_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - movie
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: movie.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: 'Filter defining fields and include - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/movie'
+      deprecated: false
+    put:
+      tags:
+        - movie
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: 'movie.replaceById__put_movies_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/movie'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/movie'
+      deprecated: false
+    delete:
+      tags:
+        - movie
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: movie.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    patch:
+      tags:
+        - movie
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: movie.prototype.patchAttributes
+      parameters:
+        - name: id
+          in: path
+          description: movie id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/movie'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/movie'
+      deprecated: false
+  '/movies/{id}/replace':
+    post:
+      tags:
+        - movie
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: 'movie.replaceById__post_movies_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/movie'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/movie'
+      deprecated: false
+  /movies/findOne:
+    get:
+      tags:
+        - movie
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: movie.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string (`{"where":{"something":"value"}}`).  See https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries for more details.'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/movie'
+      deprecated: false
+  /movies/update:
+    post:
+      tags:
+        - movie
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: movie.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/movie'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /movies/count:
+    get:
+      tags:
+        - movie
+      summary: Count instances of the model matched by where from the data source.
+      operationId: movie.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /movies/change-stream:
+    post:
+      tags:
+        - movie
+      summary: Create a change stream.
+      operationId: movie.createChangeStream__post_movies_change-stream
+      parameters:
+        - name: options
+          in: formData
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+    get:
+      tags:
+        - movie
+      summary: Create a change stream.
+      operationId: movie.createChangeStream__get_movies_change-stream
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+tags:
+  - name: movie
+consumes:
+  - application/json
+  - application/x-www-form-urlencoded
+  - application/xml
+  - text/xml
+produces:
+  - application/json
+  - application/xml
+  - text/xml
+  - application/javascript
+  - text/javascript
+definitions:
+  new_movie:
+    properties:
+      title:
+        type: string
+      releaseDate:
+        type: string
+        format: date-time
+      rating:
+        default: 0
+        type: number
+        format: double
+      genre:
+        type: string
+    required:
+      - title
+      - releaseDate
+      - genre
+    additionalProperties: false
+  movie:
+    properties:
+      title:
+        type: string
+      releaseDate:
+        type: string
+        format: date-time
+      rating:
+        default: 0
+        type: number
+        format: double
+      genre:
+        type: string
+      id:
+        $ref: '#/definitions/ObjectID'
+    required:
+      - title
+      - releaseDate
+      - genre
+    additionalProperties: false
+  ObjectID:
+    type: string
+    pattern: '^[a-fA-F\d]{24}$'

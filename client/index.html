@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movies</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script>
+      // The `React` variable is set by the first `<script>` tag
+      // in the above HTML file.
+      let createElement = React.createElement
+
+      let movies = async () => {
+        const response = await fetch('http://localhost:3000/api/movies');
+        const data = await response.json();
+        return data.map(({ id, title, releaseDate, rating, genre }) => (
+          createElement(
+            'li',
+            { key: id },
+            [
+              createElement(
+                'h3',
+                {},
+                title,
+              ),
+              createElement(
+                'p',
+                {},
+                `Release Date: ${releaseDate}`,
+              ),
+              createElement(
+                'p',
+                {},
+                `Genre: ${genre}`,
+              ),
+              createElement(
+                'p',
+                {},
+                `Rating: ${rating}`,
+              ),
+            ]
+          )
+        ));
+      };
+
+      movies().then((moviesList) => {
+        let rootElement =
+          createElement('div', {},
+            createElement('h1', {}, "Movies"),
+            createElement('ul', {}, moviesList)
+          )
+
+        // The `ReactDOM` variable is set by the second `<script>` tag
+        // in the above HTML file
+        let domNode = document.getElementById('root')
+        ReactDOM.render(rootElement, domNode)
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "movies": {
+    "crud": true,
+    "connector": "rest",
+    "operations": [
+      {
+        "functions": {
+          "listAll": []
+        },
+        "template": {
+          "method": "GET",
+          "url": "http://localhost:1080/api/movies"
+        }
+      }
+    ]
+  }
+}

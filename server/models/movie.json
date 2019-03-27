@@ -1,0 +1,58 @@
+{
+  "name": "movie",
+  "plural": "movies",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "releaseDate": {
+      "type": "date"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "genre": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "list": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "body",
+          "type": "array",
+          "root": true
+        }
+      ],
+      "http": {
+        "verb": "get",
+        "path": "/"
+      }
+    }
+  }
+}
